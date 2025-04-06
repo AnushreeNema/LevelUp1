@@ -42,7 +42,7 @@ def openai_chat_response():
     client = OpenAI()
     response = client.responses.create(
         model="gpt-4o",
-        input=f"you are a teacher and also solves doubts of students. The {learned_info} is from a lecture or a conversation and you will use it in your responses. When a user asks something {user_input}, answer it using the {learned_info} and also your own knowledge. If a user asks something first check if it is present in the {learned_info}, if present there then combine {learned_info} and your knowledge about it and reply. And also keep your answers structured and well-formatted. "
+        input=f"you are a teacher and also solves doubts of students. The {learned_info} is from a lecture or a conversation and you will use it in your responses. When a user asks something {user_input}, answer it using the {learned_info} .  "
     )
 
 
@@ -53,7 +53,7 @@ def openai_chat_response():
 '''function for generating notes'''
 def gemini_notes():
     learned_notes=' '.join(memory)
-    client=genai.Client(api_key="--API--KEY")
+    client=genai.Client(api_key="AIzaSyA2AbHiCrm-yG-D0ENO8Q6n1Edqh6YKxSE")
     response = client.models.generate_content(
     model="gemini-2.0-flash",
     contents=f"kindly generate notes on the basis of {learned_notes}. Generate detailed and well-formatted notes",
